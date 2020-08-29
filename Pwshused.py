@@ -1,6 +1,6 @@
 import folium
 
-map = folium.Map(location=[89, -99])
+# map = folium.Map(location=[89, -99])
 # map
 # folium.folium.Map object at 0x092F9520 >
 map.save("Map1.html")
