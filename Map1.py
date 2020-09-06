@@ -27,6 +27,8 @@ fg = folium.FeatureGroup(name="My Map")
 for lt, ln, el in zip(lat, lon, elev):
     fg.add_child(folium.Marker(
         location=[lt, ln], popup=str(el) + " m", icon=folium.Icon(color=color_producer(el))))
+    # fg.add_child(folium.CircleMarker(
+    #     location=[lt, ln], radius=5, popup=str(el) + " m", icon=folium.Icon(fill_color=color_producer(el), color='blue', fill=True, fill_opacity=0.7)))
 
 # for coordinates in [[38.2, -99.1], [39.2, -97.1]]:
 #     map.add_child(folium.Marker(location=coordinates,
