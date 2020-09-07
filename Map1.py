@@ -16,7 +16,7 @@ def color_producer(elevation):
         return 'red'
 
 
-map = folium.Map([38.58, -99.09], zoom_start=6, tiles="Mapbox Bright")
+map = folium.Map([38.58, -99.09], zoom_start=6)
 
 fg = folium.FeatureGroup(name="My Map")
 
