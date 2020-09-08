@@ -5,6 +5,10 @@ data = pandas.read_csv("Volcanoes_USA.txt")
 lat = list(data["LAT"])
 lon = list(data["LON"])
 elev = list(data["ELEV"])
+# layering of the different components in map
+# basically more like web map analyser.
+# used are polygon layer
+# pointer / marker layer
 
 
 def color_producer(elevation):
@@ -34,13 +38,14 @@ for lt, ln, el in zip(lat, lon, elev):
 
 # will use lambda function in the style_function parameter
 fg.add_child(folium.GeoJson(data=open('world.json', 'r', encoding='utf-8-sig').read(),
-                            style_function=lambda x: {'fillC
-                                                      olor': 'yellow'}))
+                            style_function=lambda x: {'fillColor': 'green' if x['properties']['POP2005'] < 10000000 else 'orange' if 10000000 <= x['properties']['POP2005'] < 20000000 else 'red'}))
+# designed a classification algorithm for distinguishd population on the map
 
 # for coordinates in [[38.2, -99.1], [39.2, -97.1]]:
 #     map.add_child(folium.Marker(location=coordinates,
 #                                 popup="heya im a marker", icon=folium.Icon(color='green')))
 
+map.add_child(folium.LayoutControl())
 map.add_child(fg)
 
 map.save("Map1.html")
