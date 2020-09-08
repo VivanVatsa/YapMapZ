@@ -45,7 +45,7 @@ fg.add_child(folium.GeoJson(data=open('world.json', 'r', encoding='utf-8-sig').r
 #     map.add_child(folium.Marker(location=coordinates,
 #                                 popup="heya im a marker", icon=folium.Icon(color='green')))
 
-map.add_child(folium.LayoutControl())
+map.add_child(folium.LayerControl())
 map.add_child(fg)
 
 map.save("Map1.html")
